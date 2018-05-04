@@ -1,4 +1,4 @@
-package de.aeschool.hashgenerator;
+package de.aeschool.hashgenerator.log;
 
 public abstract class Logger {
     public abstract void e(String text);

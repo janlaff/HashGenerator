@@ -1,4 +1,4 @@
-package de.aeschool.hashgenerator;
+package de.aeschool.hashgenerator.log;
 
 import java.util.Date;
 

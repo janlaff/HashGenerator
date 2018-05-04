@@ -1,5 +1,9 @@
 package de.aeschool.hashgenerator;
 
+import de.aeschool.hashgenerator.log.ConsoleLogger;
+import de.aeschool.hashgenerator.log.Log;
+import de.aeschool.hashgenerator.ui.MainWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.lang.management.ManagementFactory;

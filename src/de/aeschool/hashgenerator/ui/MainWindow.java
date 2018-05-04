@@ -1,4 +1,4 @@
-package de.aeschool.hashgenerator;
+package de.aeschool.hashgenerator.ui;
 
 import javax.swing.*;
 import java.awt.*;
