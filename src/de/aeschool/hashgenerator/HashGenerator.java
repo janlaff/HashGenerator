@@ -5,21 +5,20 @@ import java.awt.*;
 
 public class HashGenerator {
     public static void main(String[] args) {
-        System.out.println("Starting application");
+        Log.registerLogger(new ConsoleLogger());
+
+        Log.d("Starting application");
 
         try {
+            Log.d("Setting system default look and feel...");
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
-            System.err.println("Error setting look and feel");
-            return;
+            Log.e("Setting look and feel failed... Continuing with default");
         }
 
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                MainWindow window = new MainWindow();
-                window.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            MainWindow window = new MainWindow("HashGenerator");
+            window.setVisible(true);
         });
     }
 }
