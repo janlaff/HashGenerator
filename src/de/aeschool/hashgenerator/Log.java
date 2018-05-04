@@ -1,8 +1,6 @@
 package de.aeschool.hashgenerator;
 
-import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Log {
