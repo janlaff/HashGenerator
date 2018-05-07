@@ -1,30 +1,23 @@
 package de.aeschool.hashgenerator.ui;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MainWindow extends JFrame {
-    private JButton fileButton;
-    private JTextField stringTextField;
-    private GridLayout gridLayout;
+    private JPanel panel1;
+    private JButton selectFileButton;
+    private JTextArea textArea1;
+    private JButton convertStringButton;
+    private JTabbedPane tabbedPane1;
+    private JButton copyToClipboardButton;
 
-    public MainWindow(String title) {
-        super(title);
+    public MainWindow(String text) {
+        setTitle(text);
+        setVisible(true);
 
-        initializeGui();
-    }
-
-    private void initializeGui() {
-        gridLayout = new GridLayout(2, 0);
-        fileButton = new JButton("Select File");
-        stringTextField = new JTextField();
-
-        setLayout(gridLayout);
-
-        add(fileButton);
-        add(stringTextField);
+        add(panel1);
 
         setSize(800, 600);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
