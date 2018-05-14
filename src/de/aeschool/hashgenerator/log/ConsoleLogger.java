@@ -8,7 +8,7 @@ public class ConsoleLogger extends Logger {
     }
 
     public void e(Exception exception) {
-        System.err.println(getDateTimeString() + " [ERROR]: " + exception.getStackTrace());
+        System.err.println(getDateTimeString() + " [ERROR]: " + exception.getMessage());
     }
 
     public void w(String text) {

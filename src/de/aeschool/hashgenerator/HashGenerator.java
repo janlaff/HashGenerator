@@ -2,6 +2,7 @@ package de.aeschool.hashgenerator;
 
 import de.aeschool.hashgenerator.log.ConsoleLogger;
 import de.aeschool.hashgenerator.log.Log;
+import de.aeschool.hashgenerator.log.UILogger;
 import de.aeschool.hashgenerator.ui.MainWindow;
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ public class HashGenerator {
     public static void main(String[] args) {
         // Output logging to console
         Log.registerLogger(new ConsoleLogger());
+        Log.registerLogger(new UILogger());
 
         // Check if in debug mode
         if (ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains("jdwp")) {
