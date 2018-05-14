@@ -14,7 +14,8 @@ import java.nio.file.Files;
 public class MainWindow extends JFrame {
     private JPanel panel1;
     private JButton selectFileButton;
-    private JTextArea textArea1;
+    private JTextPane textArea1;
+    private TextLineNumber tln;
     private JButton convertStringButton;
     private JTabbedPane tabbedPane1;
     private JButton md5CopyBtn;
@@ -29,11 +30,16 @@ public class MainWindow extends JFrame {
     private JButton md2CopyBtn;
     private JButton sha384CopyBtn;
     private JButton sha512CopyBtn;
+    private JScrollPane scrollPane;
 
     public MainWindow(String text) {
         setTitle(text);
         setVisible(true);
+        tln = new TextLineNumber(textArea1);
+
+        scrollPane.setRowHeaderView(tln);
         add(panel1);
+
         setSize(1280, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
