@@ -5,22 +5,22 @@ import de.aeschool.hashgenerator.log.Log;
 import java.security.MessageDigest;
 
 public class Hash {
-    public static String md5(String text) {
-        return generateHash(text, "MD5");
+    public static String md5(byte[] data) {
+        return generateHash(data, "MD5");
     }
 
-    public static String sha1(String text) {
-        return generateHash(text, "SHA-1");
+    public static String sha1(byte[] data) {
+        return generateHash(data, "SHA-1");
     }
 
-    public static String sha256(String text) {
-        return generateHash(text, "SHA-256");
+    public static String sha256(byte[] data) {
+        return generateHash(data, "SHA-256");
     }
 
-    private static String generateHash(String text, String hashType) {
+    private static String generateHash(byte[] data, String hashType) {
         try {
             MessageDigest md = MessageDigest.getInstance(hashType);
-            md.update(text.getBytes());
+            md.update(data);
 
             return toHexString(md.digest());
         } catch (Exception e) {
