@@ -17,18 +17,24 @@ public class MainWindow extends JFrame {
     private JTextArea textArea1;
     private JButton convertStringButton;
     private JTabbedPane tabbedPane1;
-    private JButton copyToClipboardButton;
-    private JButton copyToClipboardButton1;
-    private JButton copyToClipboardButton2;
+    private JButton md5CopyBtn;
+    private JButton sha1CopyBtn;
+    private JButton sha256CopyBtn;
     private JLabel md5Label;
     private JLabel sha1Label;
     private JLabel sha256Label;
+    private JLabel md2Label;
+    private JLabel sha384Label;
+    private JLabel sha512Label;
+    private JButton md2CopyBtn;
+    private JButton sha384CopyBtn;
+    private JButton sha512CopyBtn;
 
     public MainWindow(String text) {
         setTitle(text);
         setVisible(true);
         add(panel1);
-        setSize(800, 600);
+        setSize(1280, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         updateUI("".getBytes());
@@ -58,26 +64,44 @@ public class MainWindow extends JFrame {
         });
 
 
-        copyToClipboardButton.addActionListener(actionEvent -> {
+        md2CopyBtn.addActionListener(actionEvent -> {
+            Log.d("MD2 Copy to Clipboard button was clicked");
+            copyToClipboard(md2Label.getText());
+        });
+
+        md5CopyBtn.addActionListener(actionEvent -> {
             Log.d("MD5 Copy to Clipboard button was clicked");
             copyToClipboard(md5Label.getText());
         });
 
-        copyToClipboardButton1.addActionListener(actionEvent -> {
+        sha1CopyBtn.addActionListener(actionEvent -> {
             Log.d("SHA-1 Copy to Clipboard button was clicked");
             copyToClipboard(sha1Label.getText());
         });
 
-        copyToClipboardButton2.addActionListener(actionEvent -> {
+        sha256CopyBtn.addActionListener(actionEvent -> {
             Log.d("SHA-256 Copy to Clipboard button was clicked");
             copyToClipboard(sha256Label.getText());
+        });
+
+        sha384CopyBtn.addActionListener(actionEvent -> {
+            Log.d("SHA-384 Copy to Clipboard button was clicked");
+            copyToClipboard(sha384Label.getText());
+        });
+
+        sha512CopyBtn.addActionListener(actionEvent -> {
+            Log.d("SHA-512 Copy to Clipboard button was clicked");
+            copyToClipboard(sha512Label.getText());
         });
     }
 
     private void updateUI(byte[] data) {
+        md2Label.setText(Hash.md2(data));
         md5Label.setText(Hash.md5(data));
         sha1Label.setText(Hash.sha1(data));
         sha256Label.setText(Hash.sha256(data));
+        sha384Label.setText(Hash.sha384(data));
+        sha512Label.setText(Hash.sha512(data));
     }
 
     private void copyToClipboard(String text) {
