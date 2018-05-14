@@ -5,6 +5,10 @@ import de.aeschool.hashgenerator.log.Log;
 import java.security.MessageDigest;
 
 public class Hash {
+    public static String md2(byte[] data) {
+        return generateHash(data, "MD2");
+    }
+
     public static String md5(byte[] data) {
         return generateHash(data, "MD5");
     }
@@ -17,17 +21,12 @@ public class Hash {
         return generateHash(data, "SHA-256");
     }
 
-    private static String generateHash(byte[] data, String hashType) {
-        try {
-            MessageDigest md = MessageDigest.getInstance(hashType);
-            md.update(data);
+    public static String sha384(byte[] data) {
+        return generateHash(data, "SHA-384");
+    }
 
-            return toHexString(md.digest());
-        } catch (Exception e) {
-            Log.e(e);
-
-            return "An error occurred";
-        }
+    public static String sha512(byte[] data) {
+        return generateHash(data, "SHA-512");
     }
 
     private static String toHexString(byte[] data) {
@@ -44,5 +43,18 @@ public class Hash {
         }
 
         return hexString.toString();
+    }
+
+    private static String generateHash(byte[] data, String hashType) {
+        try {
+            MessageDigest md = MessageDigest.getInstance(hashType);
+            md.update(data);
+
+            return toHexString(md.digest());
+        } catch (Exception e) {
+            Log.e(e);
+
+            return "An error occurred";
+        }
     }
 }
