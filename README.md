@@ -1,5 +1,7 @@
 # HashGenerator
 
+![Alt text](/assets/screenshot.png?raw=true "Screenshot")
+
 Program to calculate hashes of files and strings
 
 ## Requirements
